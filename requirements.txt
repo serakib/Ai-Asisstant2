@@ -1,5 +1,0 @@
-Flask>=3.0.0
-Flask-Cors>=4.0.0
-python-dotenv>=1.0.0
-groq>=0.5.0
-edge-tts>=6.1.0
