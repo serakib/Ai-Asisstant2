@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Assistant - Medical Admission Tracker</title>
+<title>AI Assistant - MedTracker AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <!-- KaTeX for Math -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
@@ -19,9 +19,6 @@
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 <style>
-/* ══════════════════════════════════════════════════════════
-   আপনার সব CSS কোড এখানে বসবে (আগের রিপ্লাই থেকে কপি করে)
-   ══════════════════════════════════════════════════════════ */
 :root{
     --bg:#0A0A0A;--bg-elev:#111111;--bg-elev2:#1A1A1A;--bg-input:#1F1F1F;
     --text:#F5F5F5;--text-muted:#9CA3AF;--text-dim:#6B7280;
@@ -521,12 +518,9 @@ body.light-mode .voice-overlay{
     </div>
     
     <div class="sidebar-footer">
-        <!-- লগইন না থাকলে এই বাটন দেখাবে -->
         <button id="sidebarLoginBtn" class="header-login-btn" style="width:100%;" onclick="redirectToLogin()">
             Sign in
         </button>
-
-        <!-- লগইন থাকলে এই প্রোফাইল সেকশন দেখাবে -->
         <div id="sidebarUserProfile" class="header-user-profile" style="display:none; width:100%; align-items:center; gap:10px; padding:8px; background:var(--bg-elev2); border-radius:12px;">
             <img id="sidebarUserAvatar" class="header-user-avatar" src="" alt="Profile">
             <div style="display:flex; flex-direction:column; flex:1; min-width:0;">
@@ -553,7 +547,6 @@ body.light-mode .voice-overlay{
             <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
         
-        <!-- Top Right Sign In / Profile -->
         <button id="headerLoginBtn" class="header-login-btn" onclick="redirectToLogin()">Sign in</button>
         <div id="headerUserProfile" class="header-user-profile" style="display: none;">
             <img id="headerUserAvatar" class="header-user-avatar" src="" alt="Profile">
@@ -564,7 +557,7 @@ body.light-mode .voice-overlay{
             </div>
         </div>
 
-        <a href="https://serakib.github.io/Medical-Admission-Tracker/" class="back-btn">
+        <a href="https://serakib.github.io/Medical-Admission-Tracker/" class="back-btn" style="text-decoration:none; color:var(--text-muted); display:flex; align-items:center; gap:5px; font-size:0.9rem;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back
         </a>
     </div>
@@ -622,7 +615,6 @@ body.light-mode .voice-overlay{
                 </div>
                 
                 <div class="input-bar">
-                    <!-- Attachment Menu (+ Button) -->
                     <div class="attach-menu-wrapper">
                         <button class="attach-menu-btn" id="attachMenuBtn" onclick="toggleAttachMenu()">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -659,136 +651,91 @@ body.light-mode .voice-overlay{
 
     <!-- Other Views (About, FAQ, Contact, Library, Notebooks) -->
     <div id="view-about" class="view">
-        <h2 class="section-title">About Us</h2>
-        <p class="section-subtitle">আমাদের সম্পর্কে জানুন</p>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Medical Admission Tracker</h3>
-                <p>আমরা একটি স্বেচ্ছাসেবী প্ল্যাটফর্ম, যা মেডিকেল ভর্তিচ্ছু শিক্ষার্থীদের সঠিক তথ্য ও দিকনির্দেশনা দিতে কাজ করে।</p>
-                <p>এই AI অ্যাসিস্ট্যান্টটি শিক্ষার্থীদের সাধারণ প্রশ্নের উত্তর দিতে এবং সঠিক পথে পরিচালিত করতে সাহায্য করবে।</p>
+        <h2 class="section-title" style="text-align:center;font-size:2rem;font-weight:700;margin-bottom:16px;">About Us</h2>
+        <p class="section-subtitle" style="text-align:center;color:var(--text-muted);max-width:600px;margin:0 auto 48px;font-size:.95rem;">আমাদের সম্পর্কে জানুন</p>
+        <div class="about-content" style="display:flex; flex-wrap:wrap; gap:40px; align-items:center; background:var(--bg-elev); padding:40px; border-radius:20px; border:1px solid var(--border);">
+            <div class="about-text" style="flex:1; min-width:300px;">
+                <h3 style="font-size:1.5rem;margin-bottom:16px;">Medical Admission Tracker</h3>
+                <p style="color:var(--text-muted);margin-bottom:16px;">আমরা একটি স্বেচ্ছাসেবী প্ল্যাটফর্ম, যা মেডিকেল ভর্তিচ্ছু শিক্ষার্থীদের সঠিক তথ্য ও দিকনির্দেশনা দিতে কাজ করে।</p>
+                <p style="color:var(--text-muted);margin-bottom:16px;">এই AI অ্যাসিস্ট্যান্টটি শিক্ষার্থীদের সাধারণ প্রশ্নের উত্তর দিতে এবং সঠিক পথে পরিচালিত করতে সাহায্য করবে।</p>
             </div>
-            <div class="about-image">
+            <div class="about-image" style="flex:1; min-width:300px; height:250px; background:var(--bg-elev2); border:1px solid var(--border); border-radius:16px; display:flex; align-items:center; justify-content:center; color:#60A5FA;">
                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
         </div>
     </div>
 
     <div id="view-faq" class="view">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">আপনার সাধারণ জিজ্ঞাসাগুলোর উত্তর</p>
-        <div class="faq-container">
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this.parentElement)"><span>এই AI অ্যাসিস্ট্যান্ট কি ফ্রি?</span><span class="faq-icon">▼</span></div><div class="faq-answer">হ্যাঁ, সম্পূর্ণ ফ্রি। যেকোনো প্রশ্ন করতে পারেন।</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this.parentElement)"><span>Deep Think কী?</span><span class="faq-icon">▼</span></div><div class="faq-answer">Deep Think চালু করলে AI উত্তর দেওয়ার আগে ধাপে ধাপে চিন্তা করে — ঠিক DeepSeek-এর মতো। কঠিন প্রশ্নে বেশি নির্ভুল উত্তর পাবেন।</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this.parentElement)"><span>Smart Search কী?</span><span class="faq-icon">▼</span></div><div class="faq-answer">Smart Search চালু করলে AI ওয়েব থেকে সাম্প্রতিক তথ্য খুঁজে উত্তর দেবে। মেডিকেল নোটিশ, পরীক্ষার তারিখ ইত্যাদির জন্য দারুণ।</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this.parentElement)"><span>AI কথা বলছে না কেন?</span><span class="faq-icon">▼</span></div><div class="faq-answer">ভয়েস পিলের পাশে 🔊 বাটনে ক্লিক করে টেস্ট করুন। যদি শব্দ না আসে — আপনার ব্রাউজারে বাংলা ভয়েস ইনস্টল নেই। Chrome → Settings → Languages → Text-to-speech এ গিয়ে বাংলা ভয়েস যোগ করুন। অথবা Windows/Android-এ Google TTS-এ Bengali ডাউনলোড করুন।</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this.parentElement)"><span>ভয়েস পরিবর্তন করা যাবে?</span><span class="faq-icon">▼</span></div><div class="faq-answer">হ্যাঁ, ইনপুট বক্সের উপরে ভয়েস পিলে ক্লিক করুন। ৭ জন ভয়েস আর্টিস্টের ডেমো শুনে পছন্দমতো বেছে নিন।</div></div>
+        <h2 class="section-title" style="text-align:center;font-size:2rem;font-weight:700;margin-bottom:16px;">Frequently Asked Questions</h2>
+        <div class="faq-container" style="max-width:800px;margin:0 auto;">
+            <div class="faq-item" style="background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;">
+                <div class="faq-question" onclick="toggleFaq(this.parentElement)" style="padding:20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;"><span>এই AI অ্যাসিস্ট্যান্ট কি ফ্রি?</span><span>▼</span></div>
+                <div class="faq-answer" style="padding:0 20px 20px;color:var(--text-muted);display:none;">হ্যাঁ, সম্পূর্ণ ফ্রি। যেকোনো প্রশ্ন করতে পারেন।</div>
+            </div>
+            <div class="faq-item" style="background:var(--bg-elev);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;">
+                <div class="faq-question" onclick="toggleFaq(this.parentElement)" style="padding:20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;"><span>Deep Think কী?</span><span>▼</span></div>
+                <div class="faq-answer" style="padding:0 20px 20px;color:var(--text-muted);display:none;">Deep Think চালু করলে AI উত্তর দেওয়ার আগে ধাপে ধাপে চিন্তা করে — ঠিক DeepSeek-এর মতো। কঠিন প্রশ্নে বেশি নির্ভুল উত্তর পাবেন।</div>
+            </div>
         </div>
     </div>
 
     <div id="view-contact" class="view">
-        <h2 class="section-title">Contact Us</h2>
-        <p class="section-subtitle">যেকোনো পরামর্শ বা অভিযোগের জন্য যোগাযোগ করুন</p>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Get in Touch</h3>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    <span>serakib@example.com</span>
-                </div>
-                <div class="contact-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span>+880 1234 567890</span>
-                </div>
-            </div>
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent!');">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+        <h2 class="section-title" style="text-align:center;font-size:2rem;font-weight:700;margin-bottom:16px;">Contact Us</h2>
+        <div class="contact-container" style="max-width:900px;margin:0 auto;background:var(--bg-elev);padding:40px;border-radius:20px;border:1px solid var(--border);">
+            <p style="color:var(--text-muted);">যেকোনো পরামর্শ বা অভিযোগের জন্য যোগাযোগ করুন: serakib@example.com</p>
         </div>
     </div>
 
     <div id="view-library" class="view">
-        <h2 class="section-title">Your Library</h2>
-        <p class="section-subtitle">আপনার এবং AI-এর শেয়ার করা ফাইলগুলো এখানে সংরক্ষিত থাকবে</p>
+        <h2 class="section-title" style="text-align:center;font-size:2rem;font-weight:700;margin-bottom:16px;">Your Library</h2>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <div>
-                <label style="font-size:0.9rem; color:var(--text-muted); margin-right:10px;">Auto Delete:</label>
-                <select id="autoDeleteSelect" onchange="updateAutoDeleteSetting()" style="padding:8px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg-input); color:var(--text); font-family:inherit;">
-                    <option value="never">Never (Manual delete only)</option>
-                    <option value="7">After 7 days</option>
-                    <option value="20">After 20 days</option>
-                </select>
-            </div>
-            <button onclick="clearAllLibrary()" style="padding:8px 16px; background:rgba(239,68,68,0.1); color:#EF4444; border:1px solid rgba(239,68,68,0.3); border-radius:8px; font-family:inherit; font-weight:600; cursor:pointer;">Clear All</button>
+            <select id="autoDeleteSelect" onchange="updateAutoDeleteSetting()" style="padding:8px; border-radius:8px; border:1px solid var(--border); background:var(--bg-input); color:var(--text);">
+                <option value="never">Never (Manual delete only)</option>
+                <option value="7">After 7 days</option>
+                <option value="20">After 20 days</option>
+            </select>
+            <button onclick="clearAllLibrary()" style="padding:8px 16px; background:rgba(239,68,68,0.1); color:#EF4444; border:1px solid rgba(239,68,68,0.3); border-radius:8px; cursor:pointer;">Clear All</button>
         </div>
-        <div id="libraryGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:16px;">
-            <!-- Library items will be populated here -->
-        </div>
+        <div id="libraryGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:16px;"></div>
     </div>
 
     <div id="view-notebooks" class="view">
-        <h2 class="section-title">Notebooks</h2>
-        <p class="section-subtitle">আপনার সংরক্ষিত নোটগুলো এখানে থাকবে</p>
-        <div style="text-align:center; padding:40px; color:var(--text-muted);">
-            <p>Notebooks feature coming soon!</p>
-        </div>
+        <h2 class="section-title" style="text-align:center;font-size:2rem;font-weight:700;margin-bottom:16px;">Notebooks</h2>
+        <p style="text-align:center; padding:40px; color:var(--text-muted);">Notebooks feature coming soon!</p>
     </div>
 </main>
 
-<footer>
-    <div class="footer-grid">
-        <div class="footer-col"><h4>MedTracker AI</h4><p>মেডিকেল ভর্তিচ্ছু শিক্ষার্থীদের জন্য একটি নির্ভরযোগ্য প্ল্যাটফর্ম।</p></div>
-        <div class="footer-col"><h4>Quick Links</h4><ul><li><a onclick="switchView('home')">Home</a></li><li><a onclick="switchView('about')">About Us</a></li><li><a onclick="switchView('faq')">FAQ</a></li><li><a onclick="switchView('contact')">Contact</a></li></ul></div>
-        <div class="footer-col"><h4>Resources</h4><ul><li><a href="https://serakib.github.io/Medical-Admission-Tracker/" target="_blank">Main Website</a></li><li><a href="#">Admission Guide</a></li><li><a href="#">Notice Board</a></li></ul></div>
-        <div class="footer-col"><h4>Follow Us</h4><ul><li><a href="#">Facebook</a></li><li><a href="#">YouTube</a></li><li><a href="#">Telegram</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">&copy; 2026 Medical Admission Tracker. All rights reserved.</div>
+<footer style="background:var(--bg);color:var(--text-muted);padding:50px 40px 20px;margin-top:auto;border-top:1px solid var(--border);text-align:center;">
+    <p>&copy; 2026 Medical Admission Tracker. All rights reserved.</p>
 </footer>
 
-<!-- ═══ VOICE OVERLAY ═══ -->
+<!-- Voice Overlay & Modal -->
 <div class="voice-overlay" id="voiceOverlay">
     <div class="voice-topbar">
-        <a href="https://rakibhasandc27.blogspot.com/" target="_blank" class="dev-btn" title="Developer Portfolio">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-            <span>Developer</span>
-        </a>
-        <button class="voice-topbtn" onclick="toggleTheme()" title="Theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>
-        <button class="voice-topbtn" onclick="shareVoiceMode()" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg></button>
-        <button class="voice-topbtn" onclick="closeVoiceMode()" title="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+        <button class="voice-topbtn" onclick="toggleTheme()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button>
+        <button class="voice-topbtn" onclick="shareVoiceMode()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg></button>
+        <button class="voice-topbtn" onclick="closeVoiceMode()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
     </div>
     <div class="voice-messages" id="voiceMessages"></div>
     <div class="voice-bottom">
         <div class="voice-orb-wrap">
-            <div class="voice-orb-tooltip">Start Voice</div>
-            <div class="voice-orb" id="voiceOrb" onclick="toggleOrbMic()" role="button" tabindex="0" aria-label="Toggle microphone">
-                <span class="orb-particle p1"></span><span class="orb-particle p2"></span><span class="orb-particle p3"></span>
-            </div>
+            <div class="voice-orb" id="voiceOrb" onclick="toggleOrbMic()"><span class="orb-particle p1"></span><span class="orb-particle p2"></span><span class="orb-particle p3"></span></div>
         </div>
         <div class="voice-inputbar">
             <input type="text" id="voiceTextInput" placeholder="Ask MedTracker" autocomplete="off">
-            <button class="vib-mic" id="vibMic" onclick="toggleOrbMic()" title="Mic ON/OFF">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <g class="mic-on-body"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></g>
-                    <g class="mic-off-slash"><line x1="1" y1="1" x2="23" y2="23"></line><path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></g>
-                </svg>
-            </button>
-            <button class="vib-close" onclick="closeVoiceMode()" title="Back to Chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
+            <button class="vib-mic" id="vibMic" onclick="toggleOrbMic()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><g class="mic-on-body"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></g><g class="mic-off-slash"><line x1="1" y1="1" x2="23" y2="23"></line><path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path><path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></g></svg></button>
+            <button class="vib-close" onclick="closeVoiceMode()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg></button>
         </div>
     </div>
 </div>
 
-<!-- ═══ VOICE MODAL ═══ -->
 <div class="voice-modal" id="voiceModal" onclick="if(event.target===this) closeVoiceModal()">
     <div class="voice-modal-content">
         <div class="voice-modal-header"><h3>🎙️ Choose Your Voice Artist</h3><button onclick="closeVoiceModal()">✕</button></div>
-        <p class="voice-modal-desc">প্রতিটি আর্টিস্টের ডেমো শুনে পছন্দমতো বেছে নিন</p>
         <div class="voice-grid" id="voiceGrid"></div>
     </div>
 </div>
 
-<!-- ═══ FEEDBACK MODAL ═══ -->
 <div class="feedback-modal" id="feedbackModal">
     <div class="feedback-modal-content">
         <h3>👎 What went wrong?</h3>
@@ -809,6 +756,6 @@ body.light-mode .voice-overlay{
 <div class="voice-toast" id="voiceToast"></div>
 
 <!-- ═══ JAVASCRIPT FILE LINK ═══ -->
-<script   src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
