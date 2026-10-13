@@ -8,8 +8,8 @@ const LOGIN_PAGE_URL = 'https://serakib.github.io/Medical-Admission-Tracker-logi
 
 // Google Drive API Configuration (এখানে আপনার API Key ও Client ID বসাতে হবে)
 const GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY';
-const GOOGLE_CLIENT_ID = 'YOUR_GOOGLE_CLIENT_ID';
-const GOOGLE_APP_ID = 'YOUR_GOOGLE_APP_ID'; // Google Cloud Console থেকে পাওয়া App ID
+const GOOGLE_CLIENT_ID = '371132803062-42bbf6b9pfv653ujs2fe7pm6f035mmi7.apps.googleusercontent.com';
+const GOOGLE_APP_ID = ''; // Google Cloud Console থেকে পাওয়া App ID
 
 // ══════════════════════════════════════════════════════════
 //  🎙️ VOICE ARTISTS CONFIGURATION
