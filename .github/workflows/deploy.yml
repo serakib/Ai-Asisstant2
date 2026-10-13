@@ -1,0 +1,42 @@
+name: MedTracker Backend CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # ১. রিপোজিটরি চেকআউট করা
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # ২. Python সেটআপ করা
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    # ৩. ডিপেন্ডেন্সি ইনস্টল করা
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # ৪. Python সিনট্যাক্স চেক করা (যাতে কোনো কোড ভুল না থাকে)
+    - name: Check Python Syntax
+      run: |
+        python -m py_compile app.py
+        echo "✅ Python syntax check passed successfully!"
+
+    # ৫. (ঐচ্ছিক) Render-এ ডিপ্লয় ট্রিগার করা
+    # আপনি যদি চান GitHub এ পুশ করলেই Render এ ডিপ্লয় শুরু হোক, 
+    # তবে নিচের ৩টি লাইনের কমেন্ট (#) খুলে দিতে পারেন।
+    # - name: Trigger Render Deployment
+    #   if: github.ref == 'refs/heads/main'
+    #   run: |
+    #     curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
